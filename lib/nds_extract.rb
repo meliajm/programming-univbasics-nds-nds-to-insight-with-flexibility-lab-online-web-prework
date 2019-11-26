@@ -109,13 +109,7 @@ def movies_with_directors_set(source)
   # a = source[0][:movies][0][:title]
   # binding.pry
   while index < source.length do 
-    index2 = 0 
-    while index2 < source[index].length do
-      # binding.pry
-      new_array << movies_with_director_key(source[index][:name], source[index][:movies])
-      
-    index2 += 1
-    end
+    new_array << movies_with_director_key(source[index][:name], source[index][:movies])
   
   index += 1
   end
