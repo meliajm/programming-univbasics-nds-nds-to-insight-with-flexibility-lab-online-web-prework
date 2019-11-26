@@ -57,7 +57,6 @@ def movies_with_director_key(name, movies_collection)
   counter = 0 
   while counter < movies_collection.length do
     movie_data = movies_collection[counter]
-    binding.pry
     array << movie_with_director_name(name, movie_data)
   counter += 1 
   end
@@ -111,12 +110,13 @@ def movies_with_directors_set(source)
     index2 = 0 
     while index2 < source[index].length do
       new_array << movies_with_director_key(source[index][:name], source[index][:movies][index2])
+      binding.pry
     index2 += 1
     end
   index += 1
   end
   new_array
-  binding.pry
+  
 end
 
 # ----------------    End of Your Code Region --------------------
