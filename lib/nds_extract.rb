@@ -110,6 +110,7 @@ def movies_with_directors_set(source)
   end
   index += 1
   new_array
+  binding.pry
 end
 
 # ----------------    End of Your Code Region --------------------
