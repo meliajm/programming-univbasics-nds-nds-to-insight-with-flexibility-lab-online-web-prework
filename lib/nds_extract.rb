@@ -105,7 +105,8 @@ def movies_with_directors_set(source)
   # to have a :director_name key added to it.
   new_array = []
   index = 0 
-  a = movies_with_director_key(source[0][:name], source[0][:movies][0])
+  #a = movies_with_director_key(source[0][:name], source[0][:movies][0])
+  source[0][:movies][0]
   binding.pry
   while index < source.length do 
     index2 = 0 
