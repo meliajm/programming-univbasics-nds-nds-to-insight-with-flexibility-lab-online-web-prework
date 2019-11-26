@@ -57,6 +57,7 @@ def movies_with_director_key(name, movies_collection)
   counter = 0 
   while counter < movies_collection.length do
     movie_data = movies_collection[counter]
+    binding.pry
     array << movie_with_director_name(name, movie_data)
   counter += 1 
   end
