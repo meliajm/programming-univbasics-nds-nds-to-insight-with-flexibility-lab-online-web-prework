@@ -1,5 +1,6 @@
 # Provided, don't edit
 require 'directors_database'
+require 'pry'
 
 # A method we're giving you. This "flattens"  Arrays of Arrays so: [[1,2],
 # [3,4,5], [6]] => [1,2,3,4,5,6].
@@ -40,14 +41,26 @@ def movies_with_director_key(name, movies_collection)
   # returned by this method.
   #
   # INPUT:
-  # * name: A director's name
+  # * name: A director's name #=> Byron Poodle
   # * movies_collection: An Array of Hashes where each Hash represents a movie
-  #
+  # movies_with_director_key
+  # {:title=>"TestA"}
+  # {:title=>"TestB"}
+  
   # RETURN:
   #
   # Array of Hashes where each Hash represents a movie; however, they should all have a
   # :director_name key. This addition can be done by using the provided
   # movie_with_director_name method
+  # array0 = [{:director_name=>"Byron Poodle", :title=>"TestA"}, {:director_name=>"Byron Poodle", :title=>"TestB"}]
+  array = []
+  counter = 0 
+  while counter < movies_collection.length do
+    movie_data = movies_collection[counter]
+    array << movie_with_director_name(name, movie_data)
+  counter += 1 
+  end
+  array
 end
 
 
@@ -63,9 +76,23 @@ def gross_per_studio(collection)
   #
   # Hash whose keys are the studio names and whose values are the sum
   # total of all the worldwide_gross numbers for every movie in the input Hash
+  hash = {}
+  i = 0 
+  
+  while i < collection.length do
+    movie = collection[i]
+    if hash[movie[:studio]] 
+      hash[movie[:studio]] += movie[:worldwide_gross]
+    else 
+      hash[movie[:studio]] = movie[:worldwide_gross]
+    end
+    i += 1  
+  end
+  hash
 end
 
 def movies_with_directors_set(source)
+  # binding.pry
   # GOAL: For each director, find their :movies Array and stick it in a new Array
   #
   # INPUT:
@@ -76,6 +103,18 @@ def movies_with_directors_set(source)
   #
   # Array of Arrays containing all of a director's movies. Each movie will need
   # to have a :director_name key added to it.
+  new_array = []
+  index = 0 
+  # a = movies_with_director_key(source[0][:name], source[0][:movies][0])
+  # a = source[0][:movies][0][:title]
+  # binding.pry
+  while index < source.length do 
+    new_array << movies_with_director_key(source[index][:name], source[index][:movies])
+  
+  index += 1
+  end
+  new_array
+  
 end
 
 # ----------------    End of Your Code Region --------------------
