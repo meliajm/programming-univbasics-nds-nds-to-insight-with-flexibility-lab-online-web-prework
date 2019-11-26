@@ -114,6 +114,7 @@ def movies_with_directors_set(source)
   index += 1
   end
   new_array
+  binding.pry
   # movies_with_director_key(source[0][:name], source[0][0])
   
 end
