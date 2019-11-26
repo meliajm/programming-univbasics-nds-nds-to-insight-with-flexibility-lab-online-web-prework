@@ -106,7 +106,7 @@ def movies_with_directors_set(source)
   new_array = []
   index = 0 
   #a = movies_with_director_key(source[0][:name], source[0][:movies][0])
-  a = source[0][:movies][0]
+  a = source[0][:movies][0][:title]
   binding.pry
   while index < source.length do 
     index2 = 0 
