@@ -105,12 +105,16 @@ def movies_with_directors_set(source)
   # to have a :director_name key added to it.
   new_array = []
   index = 0 
-  binding.pry
-  # while index < source.length do 
-  #   new_array << movies_with_director_key(source[index][:name], source[index])
-  # index += 1
-  # end
-  # new_array
+  # binding.pry
+  while index < source.length do 
+    index2 = 0 
+    while source[index].length do
+      new_array << movies_with_director_key(source[index][:name], source[index])
+    end
+  index += 1
+  end
+  new_array
+  # movies_with_director_key(source[0][:name], source[0][0])
   
 end
 
